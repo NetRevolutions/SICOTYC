@@ -45,7 +45,6 @@ import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search
 import {LimaCallaoComponent} from './pages/operations/rate-calculation/lima-callao/lima-callao.component';
 import {ProvinceComponent} from '@pages/operations/rate-calculation/province/province.component';
 import {RequestServiceEvaluationComponent} from './pages/operations/request-service-evaluation/request-service-evaluation.component';
-import {ExternalComponent} from './modules/external/external.component';
 import {WorkOrderCreationComponent} from './pages/work-order/work-order-creation/work-order-creation.component';
 import {ControlDocumentsComponent} from './pages/work-order/control-documents/control-documents.component';
 import {WorkOrderStateComponent} from './pages/work-order/work-order-state/work-order-state.component';
@@ -99,8 +98,7 @@ registerLocaleData(localeEn, 'en-EN');
         SidebarSearchComponent,
         LimaCallaoComponent,
         ProvinceComponent,
-        RequestServiceEvaluationComponent,
-        ExternalComponent,
+        RequestServiceEvaluationComponent,        
         WorkOrderCreationComponent,
         ControlDocumentsComponent,
         WorkOrderStateComponent,
