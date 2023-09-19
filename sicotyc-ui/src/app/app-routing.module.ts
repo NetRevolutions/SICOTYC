@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MainComponent} from '@modules/main/main.component';
 import {BlankComponent} from '@pages/blank/blank.component';
 import {LoginComponent} from '@modules/login/login.component';
 import {ProfileComponent} from '@pages/profile/profile.component';
@@ -33,11 +32,15 @@ import {PlacesComponent} from '@pages/maintenances/places/places.component';
 import {FeesComponent} from '@pages/maintenances/fees/fees.component';
 import {FeesCompanyComponent} from '@pages/maintenances/fees-company/fees-company.component';
 import {TollsComponent} from '@pages/maintenances/tolls/tolls.component';
+import { MainLayoutComponent } from './layouts/main/main.component';
+import { ExternalLayoutComponent } from './layouts/external/external.component';
+
+// Group By Modules
 
 const routes: Routes = [
     {
         path: '',
-        component: MainComponent,
+        component: MainLayoutComponent,
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         children: [
@@ -216,7 +219,7 @@ const routes: Routes = [
     },
     {
         path: 'external',
-        component: MainComponent, // Crear un componente external (como MainComponent) que no requiera autenticacion
+        component: ExternalLayoutComponent, // Crear un componente external (como MainComponent) que no requiera autenticacion
         canActivate: [NonAuthGuard],
         canActivateChild: [NonAuthGuard],
         children: [

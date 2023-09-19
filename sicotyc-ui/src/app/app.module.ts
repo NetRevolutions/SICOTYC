@@ -4,42 +4,29 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '@/app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {StoreModule} from '@ngrx/store';
-import {ToastrModule} from 'ngx-toastr';
-import {ProfabricComponentsModule} from '@profabric/angular-components';
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 
 import {registerLocaleData} from '@angular/common';
 import localeEn from '@angular/common/locales/en';
-import {authReducer} from './store/auth/reducer';
-import {uiReducer} from './store/ui/reducer';
 import {defineCustomElements} from '@profabric/web-components/loader';
 
 // Modules
-import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
+import { MainLayoutModule } from './layouts/main/main.module';
+import { ExternalLayoutModule } from './layouts/external/external.module';
+import { EmptyLayoutModule } from './layouts/empty/empty.module';
+import { SharedModule } from './shared/shared.module';
 
 // Components
 import {AppComponent} from './app.component';
-import {MainComponent} from '@modules/main/main.component';
 import {LoginComponent} from '@modules/login/login.component';
-import {HeaderComponent} from '@modules/main/header/header.component';
-import {FooterComponent} from '@modules/main/footer/footer.component';
-import {MenuSidebarComponent} from '@modules/main/menu-sidebar/menu-sidebar.component';
-import {BreadcrumbsComponent} from '@modules/main/breadcrumbs/breadcrumbs.component';
 import {BlankComponent} from '@pages/blank/blank.component';
 import {ProfileComponent} from '@pages/profile/profile.component';
 import {RegisterComponent} from '@modules/register/register.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
-import {MessagesComponent} from '@modules/main/header/messages/messages.component';
-import {NotificationsComponent} from '@modules/main/header/notifications/notifications.component';
-import {UserComponent} from '@modules/main/header/user/user.component';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
-import {LanguageComponent} from '@modules/main/header/language/language.component';
 import {MainMenuComponent} from './pages/main-menu/main-menu.component';
 import {SubMenuComponent} from './pages/main-menu/sub-menu/sub-menu.component';
-import {MenuItemComponent} from './components/menu-item/menu-item.component';
-import {ControlSidebarComponent} from './modules/main/control-sidebar/control-sidebar.component';
-import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search.component';
 
 // Operations
 import {LimaCallaoComponent} from './pages/operations/rate-calculation/lima-callao/lima-callao.component';
@@ -67,35 +54,23 @@ import {PlacesComponent} from './pages/maintenances/places/places.component';
 import {FeesComponent} from './pages/maintenances/fees/fees.component';
 import {FeesCompanyComponent} from './pages/maintenances/fees-company/fees-company.component';
 import {TollsComponent} from './pages/maintenances/tolls/tolls.component';
-import {ModalImagenComponent} from './components/modal-imagen/modal-imagen.component';
+
 
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
     declarations: [
-        AppComponent,
-        MainComponent,
-        LoginComponent,
-        HeaderComponent,
-        FooterComponent,
-        MenuSidebarComponent,
-        BreadcrumbsComponent,
+        AppComponent,        
+        LoginComponent,        
         BlankComponent,
         ProfileComponent,
         RegisterComponent,
-        DashboardComponent,
-        MessagesComponent,
-        NotificationsComponent,
-        UserComponent,
+        DashboardComponent,        
         ForgotPasswordComponent,
-        RecoverPasswordComponent,
-        LanguageComponent,
+        RecoverPasswordComponent,        
         MainMenuComponent,
-        SubMenuComponent,
-        MenuItemComponent,
-        ControlSidebarComponent,
-        SidebarSearchComponent,
+        SubMenuComponent,        
         LimaCallaoComponent,
         ProvinceComponent,
         RequestServiceEvaluationComponent,        
@@ -118,24 +93,20 @@ registerLocaleData(localeEn, 'en-EN');
         PlacesComponent,
         FeesComponent,
         FeesCompanyComponent,
-        TollsComponent,
-        ModalImagenComponent
+        TollsComponent
     ],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
+        SharedModule,        
         HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         AngularMultiSelectModule,
-        FormsModule,
-        ToastrModule.forRoot({
-            timeOut: 3000,
-            positionClass: 'toast-top-right',
-            preventDuplicates: true
-        }),
-        ProfabricComponentsModule
+        FormsModule,        
+        MainLayoutModule,
+        ExternalLayoutModule,
+        EmptyLayoutModule                
     ],
     providers: [],
     bootstrap: [AppComponent]
