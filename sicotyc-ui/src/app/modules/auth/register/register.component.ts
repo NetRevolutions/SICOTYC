@@ -3,18 +3,19 @@ import {
     OnInit,
     Renderer2,
     OnDestroy,
-    HostBinding
+    HostBinding,
+    ViewEncapsulation
 } from '@angular/core';
 import {UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
 import {AppService} from '@services/app.service';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
-    selector: 'app-register',
+    selector: 'auth-register',
     templateUrl: './register.component.html',
-    styleUrls: ['./register.component.scss']
+    encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class AuthRegisterComponent implements OnInit, OnDestroy {
     @HostBinding('class') class = 'register-box';
 
     public registerForm: UntypedFormGroup;

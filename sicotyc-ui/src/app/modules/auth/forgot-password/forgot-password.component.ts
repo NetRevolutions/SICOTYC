@@ -3,18 +3,19 @@ import {
     HostBinding,
     OnDestroy,
     OnInit,
-    Renderer2
+    Renderer2,
+    ViewEncapsulation
 } from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AppService} from '@services/app.service';
 
 @Component({
-    selector: 'app-forgot-password',
+    selector: 'auth-forgot-password',
     templateUrl: './forgot-password.component.html',
-    styleUrls: ['./forgot-password.component.scss']
+    encapsulation: ViewEncapsulation.None
 })
-export class ForgotPasswordComponent implements OnInit, OnDestroy {
+export class AuthForgotPasswordComponent implements OnInit, OnDestroy {
     @HostBinding('class') class = 'login-box';
     public forgotPasswordForm: UntypedFormGroup;
     public isAuthLoading = false;

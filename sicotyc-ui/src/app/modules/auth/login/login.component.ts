@@ -3,7 +3,8 @@ import {
     OnInit,
     OnDestroy,
     Renderer2,
-    HostBinding
+    HostBinding,
+    ViewEncapsulation
 } from '@angular/core';
 import {Validators, FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -14,11 +15,11 @@ import {AppService} from '@services/app.service';
 import {UserService} from '@services/user.service';
 
 @Component({
-    selector: 'app-login',
+    selector: 'auth-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+    encapsulation: ViewEncapsulation.None
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class AuthLoginComponent implements OnInit, OnDestroy {
     @HostBinding('class') class = 'login-box';
     //public fb: UntypedFormGroup;
     public isAuthLoading = false;

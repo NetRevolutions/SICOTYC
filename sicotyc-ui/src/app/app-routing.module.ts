@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {BlankComponent} from '@pages/blank/blank.component';
-import {LoginComponent} from '@modules/login/login.component';
+//import {LoginComponent} from '@modules/auth/login/login.component';
 import {ProfileComponent} from '@pages/profile/profile.component';
-import {RegisterComponent} from '@modules/register/register.component';
+//import {RegisterComponent} from '@modules/auth/register/register.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 import {AuthGuard} from '@guards/auth.guard';
 import {NonAuthGuard} from '@guards/non-auth.guard';
-import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
-import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
+//import {ForgotPasswordComponent} from '@modules/auth/forgot-password/forgot-password.component';
+//import {RecoverPasswordComponent} from '@modules/auth/recover-password/recover-password.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 import {LimaCallaoComponent} from '@pages/operations/rate-calculation/lima-callao/lima-callao.component';
 import {ProvinceComponent} from '@pages/operations/rate-calculation/province/province.component';
@@ -242,22 +242,26 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent,
+        //component: LoginComponent,
+        loadChildren: () => import('app/modules/auth/login/login.module').then(m => m.AuthLoginModule),
         canActivate: [NonAuthGuard]
     },
     {
         path: 'register',
-        component: RegisterComponent,
+        //component: RegisterComponent,
+        loadChildren: () => import('app/modules/auth/register/register.module').then(m => m.AuthRegisterModule),
         canActivate: [NonAuthGuard]
     },
     {
         path: 'forgot-password',
-        component: ForgotPasswordComponent,
+        //component: ForgotPasswordComponent,
+        loadChildren: () => import('app/modules/auth/forgot-password/forgot-password.module').then(m => m.AuthForgotPasswordModule),
         canActivate: [NonAuthGuard]
     },
     {
         path: 'recover-password',
-        component: RecoverPasswordComponent,
+        //component: RecoverPasswordComponent,
+        loadChildren: () => import('app/modules/auth/recover-password/recover-password.module').then(m => m.AuthRecoverPasswordModule),
         canActivate: [NonAuthGuard]
     },
     {path: '**', redirectTo: ''}
