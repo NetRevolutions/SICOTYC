@@ -18,13 +18,9 @@ import { SharedModule } from './shared/shared.module';
 
 // Components
 import {AppComponent} from './app.component';
-import {LoginComponent} from '@modules/login/login.component';
 import {BlankComponent} from '@pages/blank/blank.component';
 import {ProfileComponent} from '@pages/profile/profile.component';
-import {RegisterComponent} from '@modules/register/register.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
-import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
-import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {MainMenuComponent} from './pages/main-menu/main-menu.component';
 import {SubMenuComponent} from './pages/main-menu/sub-menu/sub-menu.component';
 
@@ -61,14 +57,10 @@ registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
     declarations: [
-        AppComponent,        
-        LoginComponent,        
+        AppComponent,
         BlankComponent,
         ProfileComponent,
-        RegisterComponent,
         DashboardComponent,        
-        ForgotPasswordComponent,
-        RecoverPasswordComponent,        
         MainMenuComponent,
         SubMenuComponent,        
         LimaCallaoComponent,

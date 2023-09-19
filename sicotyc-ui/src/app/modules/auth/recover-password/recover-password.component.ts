@@ -3,18 +3,19 @@ import {
     HostBinding,
     OnDestroy,
     OnInit,
-    Renderer2
+    Renderer2,
+    ViewEncapsulation
 } from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AppService} from '@services/app.service';
 
 @Component({
-    selector: 'app-recover-password',
+    selector: 'auth-recover-password',
     templateUrl: './recover-password.component.html',
-    styleUrls: ['./recover-password.component.scss']
+    encapsulation: ViewEncapsulation.None
 })
-export class RecoverPasswordComponent implements OnInit, OnDestroy {
+export class AuthRecoverPasswordComponent implements OnInit, OnDestroy {
     @HostBinding('class') class = 'login-box';
 
     public recoverPasswordForm: UntypedFormGroup;
